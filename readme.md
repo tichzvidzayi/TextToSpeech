@@ -6,7 +6,7 @@ JSON:
 
 {
   "audioConfig": {
-    "audioEncoding": "LINEAR16",
+    "audioEncoding": "MP3",
     "effectsProfileId": [
       "headphone-class-device"
     ],
