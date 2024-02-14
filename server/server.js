@@ -1,20 +1,23 @@
 const express = require("express");
-const cors = require("cors");
 const axios = require("axios");
+const cors = require('cors');
 
 const app = express();
 app.use(express.json());
+const corsOptions ={
+    origin:'http://localhost:3000', 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
-app.use(
-  cors({
-    origin: "htttp://localhost:3000",
-  })
-);
+
 
 app.post("/synthesize", async (req, res) => {
   const text = req.body.text;
-  const apiKey = "AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo";
-  var endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${apiKey}`;
+  const apiKey = 'AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo';
+  const endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${apiKey}`;
+ // const endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo`;
   const payload = {
     "audioConfig": {
       "audioEncoding": "MP3",
@@ -25,7 +28,7 @@ app.post("/synthesize", async (req, res) => {
       "speakingRate": 1
     },
     "input": {
-      "text": "Lol and devices."
+      "text": text
     },
     "voice": {
       "languageCode": "en-US",
@@ -39,9 +42,6 @@ res.json(response.data);
 })
 
 
-
-
-///
 const port = 3001;
 app.listen(port, () => {
   console.log(`Node Server running on port ${port}`)
