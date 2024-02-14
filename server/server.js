@@ -13,29 +13,36 @@ app.use(
 
 app.post("/synthesize", async (req, res) => {
   const text = req.body.text;
-  const apiKey = "AIzaSyAKgPeceH3LU3vbvua4_k3O7krqy5ur8Dg";
+  const apiKey = "AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo";
   var endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${apiKey}`;
   const payload = {
-    audioConfig: {
-      audioEncoding: "MP3",
-      effectsProfileId: ["headphone-class-device"],
-      pitch: 1.6,
-      speakingRate: 1,
+    "audioConfig": {
+      "audioEncoding": "MP3",
+      "effectsProfileId": [
+        "small-bluetooth-speaker-class-device"
+      ],
+      "pitch": 0,
+      "speakingRate": 1
     },
-    input: {
-      text: text,
+    "input": {
+      "text": "Lol and devices."
     },
-    voice: {
-      languageCode: "en-GB",
-      name: "en-GB-Studio-C",
-    },
-  };
-  const response = await axios.post(endpoint, payload);
-  res.json(response.data);
+    "voice": {
+      "languageCode": "en-US",
+      "name": "en-US-Standard-A"
+    }
+  }
 
-});
+const response = await axios.post(endpoint, payload);
+res.json(response.data);
 
-const port = 3021;
+})
+
+
+
+
+///
+const port = 3001;
 app.listen(port, () => {
   console.log(`Node Server running on port ${port}`)
-});
+})
