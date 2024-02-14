@@ -14,7 +14,7 @@ setAudioSrc(audioSrc);
   }
   
   return (
-    <div style={{ justifyContent: 'center', background:'blue'}}>
+    <div style={{ justifyContent: 'center'}}>
       <h1>Text to Speech</h1>
       <textarea value={text} onChange={e =>setText(e.target.value)} placeholder='Enter text here'/>
       <br/>
