@@ -31,7 +31,7 @@ app.post("/synthesize", async (req, res) => {
       "text": text
     },
     "voice": {
-      "languageCode": "en-US",
+      "languageCode": "en-GB",
       "name": "en-US-Standard-A"
     }
   }
