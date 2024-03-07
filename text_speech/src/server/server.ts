@@ -5,7 +5,7 @@ const cors = require('cors');
 const app = express();
 app.use(express.json());
 const corsOptions ={
-    origin:'http://localhost:3000', 
+    origin:'http://localhost:3001', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200
 }
@@ -42,7 +42,7 @@ res.json(response.data);
 })
 
 
-const port = 3001;
+const port = 3009;
 app.listen(port, () => {
   console.log(`Node Server running on port ${port}`)
 })
