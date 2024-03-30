@@ -11,8 +11,6 @@ const corsOptions ={
 }
 app.use(cors(corsOptions));
 
-
-
 app.post("/synthesize", async (req, res) => {
   const text = req.body.text;
   const apiKey = 'AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo';
@@ -40,7 +38,6 @@ const response = await axios.post(endpoint, payload);
 res.json(response.data);
 
 })
-
 
 const port = 3009;
 app.listen(port, () => {

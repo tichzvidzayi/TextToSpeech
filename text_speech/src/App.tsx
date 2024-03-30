@@ -1,49 +1,37 @@
-
-import React, { useState } from 'react';
-import axios from 'axios';
-import './App.css'
-
+import React, { useState } from "react";
+import axios from "axios";
+import "./App.css";
 
 function App() {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [audioSrc, setAudioSrc] = useState<any | null>(null);
 
   const handleSynthesize = async () => {
-    const response = await axios.post('http://localhost:3009/synthesize', { text, });
+    const response = await axios.post("http://localhost:3009/synthesize", {
+      text,
+    });
     const audioSrc = `data:audio/mp3;base64,${response.data.audioContent}`;
     setAudioSrc(audioSrc);
-
-  }
+  };
 
   return (
-    <div className='wrapper'
-
-    >
-      <label id='label'>Text to Speech</label>
-
-
+    <div className="wrapper">
+      <label id="label">Text to Speech</label>
 
       <br />
-
-
-
 
       <textarea
         placeholder="Enter something funny."
         id="text"
         name="text"
-
         value={text}
         onChange={(e) => setText(e.target.value)}
-      > </textarea>
+      >
+      </textarea>
 
       <br />
-
-
-
       <br />
-      <span className='span'>
-
+      <span className="span">
         {audioSrc && <audio controls src={audioSrc} />}
       </span>
 
