@@ -17,9 +17,7 @@ function App() {
   return (
     <div className="wrapper">
       <label id="label">Text to Speech</label>
-
-      <br />
-
+      <br/>
       <textarea
         placeholder="Enter something funny."
         id="text"
@@ -28,7 +26,6 @@ function App() {
         onChange={(e) => setText(e.target.value)}
       >
       </textarea>
-
       <br />
       <br />
       <span className="span">
