@@ -13,7 +13,8 @@ app.use(cors(corsOptions));
 
 app.post("/synthesize", async (req, res) => {
   const text = req.body.text;
-  const apiKey = 'AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo';
+  // Can use .env 
+const apiKey = 'AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo';
   const endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${apiKey}`;
  // const endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo`;
   const payload = {
