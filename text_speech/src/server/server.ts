@@ -19,7 +19,7 @@ const apiKey = process.env.GOOGLE_TTS_API_KEY;
 // Construct the Google Text-to-Speech API endpoint
 const endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=${apiKey}`;
  // const endpoint = `https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=AIzaSyC6dajUubj-xclBQtDdOzLcoNnNbyqfixo`;
-  const payload = {
+const payload = {
     "audioConfig": {
       "audioEncoding": "MP3",
       "effectsProfileId": [
